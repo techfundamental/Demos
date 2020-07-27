@@ -21,10 +21,15 @@ namespace WebApplication6
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-         /*   DefaultFilesOptions DefaultFile = new DefaultFilesOptions();
-            DefaultFile.DefaultFileNames.Clear();
-            DefaultFile.DefaultFileNames.Add("index.html");*/
-            app.UseDefaultFiles();
+            // code to use default file
+            /* app.UseDefaultFiles();
+              app.UseStaticFiles();*/
+
+            // Adding custom file name in Default files
+            DefaultFilesOptions defaultFiles = new DefaultFilesOptions();
+            defaultFiles.DefaultFileNames.Clear();
+            defaultFiles.DefaultFileNames.Add("welcome.html");
+            app.UseDefaultFiles(defaultFiles);
             app.UseStaticFiles();
         }
     }
